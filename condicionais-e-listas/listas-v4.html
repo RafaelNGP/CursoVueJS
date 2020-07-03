@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script src="http://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(cor, i) in cores">{{cor}} - {{i}}</li>
+    </ul>
+<hr>
+    <template v-for="(cor, i) in cores">
+    <h1>{{cor}}</h1>
+    <p>{{i}}</p>
+</template>
+<hr>
+<ul>
+    <li v-for="pessoa in pessoas">
+        <!-- {{pessoa.nome}}  -->
+        <!-- aqui estamos acessando em forma de objeto algo especifico -->
+        <div v-for="(valores, chave, index) in pessoa">
+         {{index + 1 }}: {{chave}} = {{valores}}
+        </div>
+        <!-- aqui estamos usando um v-for para o objeto pessoa criado pelo outro v-for -->
+    </li>
+    <hr>
+    <span v-for="n in 10">{{n}}</span>
+</ul>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'amarelo', 'verde', 'azul'],
+            pessoas: [
+                { nome: 'Ana', idade: 26, peso: 59  },
+                { nome: 'Guilherme', idade: 22, peso: 89  },
+                ]
+        }
+    })
+</script>
